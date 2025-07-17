@@ -3,8 +3,9 @@ const cors = require('cors');
 const axios = require('axios');
 const TelegramBot = require('node-telegram-bot-api');
 const app = express();
-const TELEGRAM_TOKEN = '7913183689:AAG__Pvn-MFq1en_aH_XvGJVdwAXlUr9LPM';
+const TELEGRAM_TOKEN = '7913183689:AAHAXxoPbY36bE8kY3-yv377u3pjb2tNSG4';
 const bot = new TelegramBot(TELEGRAM_TOKEN, { polling: false });
+
 app.use(cors());
 app.use(express.json());
 app.post('/ask-grok', async (req, res) => {
@@ -31,7 +32,6 @@ app.post(`/bot${TELEGRAM_TOKEN}`, async (req, res) => {
 });
 const WEBHOOK_URL = 'https://grok-server.onrender.com';
 bot.setWebHook(`${WEBHOOK_URL}/bot${TELEGRAM_TOKEN}`);
-
 app.listen(process.env.PORT || 3001, () => {
   console.log('Server running');
 });
